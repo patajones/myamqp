@@ -1,0 +1,27 @@
+spring:
+    rabbitmq:
+      host: ${RABBITMQ_HOST:${rabbitmq.default.host:localhost}}
+      port: ${RABBITMQ_PORT:${rabbitmq.default.port:5672}}
+      username: ${RABBITMQ_USERNAME:${rabbitmq.default.username:guest}}
+      password: ${RABBITMQ_PASSWORD:${rabbitmq.default.password:guest}}
+      virtual-host: ${RABBITMQ_VHOST:${rabbitmq.default.vhost:}}
+      listener:
+        simple.acknowledge-mode: manual
+        direct.acknowledge-mode: manual
+
+management:
+  endpoints:
+    web.base-path: "/"
+    enabled-by-default: false
+  endpoint:
+    health.enabled: true
+    info.enabled: true
+
+app:
+  mq.queues:
+    entrada:
+      name: "myamqp.entrada"
+      auto-create: true
+    passo2:
+      name: "myamqp.passo2"
+      auto-create: true

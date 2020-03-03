@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+    rabbit:
+        image: "rabbitmq:3-management"
+        hostname: my-rabbit
+        ports:
+            - "8099:15672"
+            - "5672:5672"
